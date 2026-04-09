@@ -64,6 +64,28 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
   }
+
+  .primary {
+    background: #ffde00 !important;
+  }
+
+  .secondary {
+    background: #3b4cca !important;
+    color: white !important;
+  }
+
+  .tertiary {
+    background: #ff0000 !important;
+    color: white !important;
+  }
+
+  .dangerr {
+    background: #cc0000 !important;
+  }
+
+  .light {
+    background: #ffffff !important;
+  }
 }
 
 @layer base {

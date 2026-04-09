@@ -1,14 +1,31 @@
 import "./globals.css"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import type React from "react" // Import React
+import { Chewy } from "next/font/google"
+import type React from "react"
+import Script from "next/script"
 
-const inter = Inter({ subsets: ["latin"] })
+const chewy = Chewy({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+})
 
 export const metadata: Metadata = {
-  title: "Pokémon Guesser",
-  description: "Guess the Pokémon from its silhouette!",
-  generator: 'v0.dev'
+  title: "PokéGuessr",
+  description:
+    "Test your Pokémon knowledge! Try to identify Pokémon from their silhouettes in this fun guessing game. Features all generations, statistics tracking, and various game modes.",
+  keywords: [
+    "Pokemon",
+    "Game",
+    "Quiz",
+    "Guessing Game",
+    "Pokemon Quiz",
+    "Pokemon Game",
+    "Pokeguesser",
+    "Pokemon Guesser",
+    "PokeGuessr",
+  ],
+    generator: 'v0.app'
 }
 
 export default function RootLayout({
@@ -19,14 +36,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2924464423031513"
-          crossorigin="anonymous"></script>
-      </head>
-      <body className={inter.className}>{children}</body>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2924464423031513"
+     crossOrigin="anonymous"></script>            
+        
+        </head>
+      <body className={chewy.className}>{children}</body>
     </html>
   )
 }
 
-
-
-import './globals.css'
