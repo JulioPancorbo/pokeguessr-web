@@ -9,10 +9,11 @@ interface GenerationSelectorProps {
 }
 
 export function GenerationSelector({ generations, selectedGenerations, onChange }: GenerationSelectorProps) {
+  const allSelected = selectedGenerations.length === generations.length
+
   const toggleGeneration = (generation: Generation) => {
     const isSelected = selectedGenerations.some((gen) => gen.id === generation.id)
     if (isSelected) {
-      // Don't allow deselecting if it's the last selected generation
       if (selectedGenerations.length === 1) return
       onChange(selectedGenerations.filter((gen) => gen.id !== generation.id))
     } else {
@@ -22,7 +23,7 @@ export function GenerationSelector({ generations, selectedGenerations, onChange 
 
   return (
     <div className="w-full">
-      <div className="grid grid-cols-3 grid-rows-3 gap-1">
+      <div className="grid grid-cols-3 gap-2">
         {generations.map((gen) => {
           const isSelected = selectedGenerations.some((selected) => selected.id === gen.id)
           return (
@@ -30,8 +31,8 @@ export function GenerationSelector({ generations, selectedGenerations, onChange 
               key={gen.id}
               onClick={() => toggleGeneration(gen)}
               className={cn(
-                "h-8 flex items-center justify-center rounded-lg font-medium transition-colors text-sm",
-                isSelected ? "bg-blue-600 text-white hover:bg-blue-700" : "bg-white hover:bg-gray-200 text-gray-700",
+                "h-9 w-full flex items-center justify-center font-bold text-sm transition-colors cursor-pointer",
+                isSelected ? "gen-btn gen-btn-selected" : "gen-btn",
               )}
             >
               {gen.id}
@@ -39,6 +40,12 @@ export function GenerationSelector({ generations, selectedGenerations, onChange 
           )
         })}
       </div>
+      <button
+        onClick={() => onChange(allSelected ? [generations[0]] : generations)}
+        className="gen-btn mt-3 w-full h-9 flex items-center justify-center font-bold text-sm transition-colors cursor-pointer"
+      >
+        {allSelected ? "Deselect All" : "Select All"}
+      </button>
     </div>
   )
 }

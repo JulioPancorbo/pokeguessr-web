@@ -233,9 +233,9 @@ export function Game() {
       {/* Mobile Menus */}
       <MobileMenu side="left" isOpen={isSettingsOpen} onClose={() => setIsSettingsOpen(false)}>
         <div className="space-y-4">
-          <h3 className="text-lg font-semibold">Game Settings</h3>
-          <div className="bg-gray-100 rounded-lg p-4">
-            <div className="text-sm font-medium text-center mb-2">Generation</div>
+          <h3 className="panel-retro-label text-center">Game Settings</h3>
+          <div className="panel-retro p-4">
+            <div className="panel-retro-label text-center">Generation</div>
             <GenerationSelector
               generations={GENERATIONS}
               selectedGenerations={selectedGenerations}
@@ -256,9 +256,9 @@ export function Game() {
 
       <MobileMenu side="right" isOpen={isStatsOpen} onClose={() => setIsStatsOpen(false)}>
         <div className="space-y-4">
-          <h3 className="text-lg font-semibold">Statistics</h3>
-          <div className="bg-gray-100 rounded-lg p-4">
-            <div className="text-sm font-medium text-center mb-2">Statistics</div>
+          <h3 className="panel-retro-label text-center">Statistics</h3>
+          <div className="panel-retro p-4">
+            <div className="panel-retro-label text-center">Statistics</div>
             <StatsDisplay
               stats={[
                 { label: "Games Played", value: stats.totalGames },
@@ -271,23 +271,23 @@ export function Game() {
         </div>
       </MobileMenu>
 
-      <h1 className="text-3xl sm:text-4xl font-bold mb-2 text-center mt-8 sm:mt-0">PokéGuessr</h1>
-      <h2 className="text-2xl sm:text-3xl mb-4 text-gray-600 text-center">Who's that Pokémon?</h2>
+      <h1 className="font-pixel text-xl sm:text-2xl font-bold mb-3 text-center mt-8 sm:mt-0 text-[#1a1a2e] drop-shadow-[2px_2px_0px_rgba(255,255,255,0.5)]">PokéGuessr</h1>
+      <h2 className="text-lg sm:text-xl mb-6 text-[#3b4cca] text-center font-bold tracking-wide">Who's that Pokémon?</h2>
 
       <div className="w-full max-w-6xl">
         <div className="flex flex-col items-center">
           {/* Header section with generation selector and stats - Only visible on desktop */}
           <div className="hidden sm:flex w-full max-w-4xl flex-col sm:flex-row justify-center gap-4 mb-6">
-            <div className="w-full bg-gray-100 rounded-lg p-4">
-              <div className="text-sm font-medium text-center mb-2">Generation</div>
+            <div className="w-full panel-retro p-4">
+              <div className="panel-retro-label text-center">Generation</div>
               <GenerationSelector
                 generations={GENERATIONS}
                 selectedGenerations={selectedGenerations}
                 onChange={setSelectedGenerations}
               />
             </div>
-            <div className="w-full bg-gray-100 rounded-lg p-4">
-              <div className="text-sm font-medium text-center mb-2">Statistics</div>
+            <div className="w-full panel-retro p-4">
+              <div className="panel-retro-label text-center">Statistics</div>
               <StatsDisplay
                 stats={[
                   { label: "Games Played", value: stats.totalGames },
@@ -330,7 +330,7 @@ export function Game() {
                 {/*)}*/}
 
                 {/* Pokémon display section */}
-                <div className="bg-blue-400 rounded-xl p-6 mb-6">
+                <div className="card-retro p-6 mb-6">
                   <div className="flex flex-col sm:flex-row gap-6">
                     <div className="flex-1 flex flex-col items-center">
                       <AnimatePresence mode="wait">
@@ -346,7 +346,7 @@ export function Game() {
                                 alt="Pokemon silhouette"
                                 width={200}
                                 height={200}
-                                className="object-contain filter brightness-0"
+                                className="object-contain filter brightness-0 silhouette-breathing"
                                 style={{ imageRendering: "pixelated" }}
                               />
                             )}
@@ -370,13 +370,13 @@ export function Game() {
                       </AnimatePresence>
                       {state.gameOver && (
                         <>
-                          <p className="text-center text-xl mb-4">{state.message}</p>
+                          <p className="text-center text-xl mb-4 success-message">{state.message}</p>
                           <div className="flex justify-center gap-2 w-full">
                             <Button
                               onClick={() => changeSprite("prev")}
                               size="sm"
                               variant="outline"
-                              className="hover:bg-gray-200"
+                              className="hover:bg-gray-200 btn-retro"
                             >
                               <ChevronLeft className="h-4 w-4 mr-2" />
                               Previous sprite
@@ -385,7 +385,7 @@ export function Game() {
                               onClick={() => changeSprite("next")}
                               size="sm"
                               variant="outline"
-                              className="hover:bg-gray-200"
+                              className="hover:bg-gray-200 btn-retro"
                             >
                               Next sprite
                               <ChevronRight className="h-4 w-4 ml-2" />
@@ -397,23 +397,23 @@ export function Game() {
 
                     {state.gameOver && (
                       <div className="flex-1">
-                        <div className="space-y-2 bg-blue-200 rounded-lg p-4 h-full">
-                          <p className="font-mono">
+                        <div className="space-y-2 card-retro-inner p-4 h-full">
+                          <p style={{ fontFamily: "var(--font-press-start), monospace", fontSize: "0.65rem", color: "#ffde00", letterSpacing: "0.05em" }}>
                             <strong>Name:</strong> {capitalizeFirstLetter(state.pokemon!.name)}
                             {getCurrentSprite().includes("shiny") && (
-                              <span className="text-yellow-500 ml-2">(Shiny)</span>
+                              <span style={{ color: "#ffff00", marginLeft: "8px" }}>(Shiny)</span>
                             )}
                           </p>
-                          <p className="font-mono">
+                          <p style={{ fontFamily: "var(--font-press-start), monospace", fontSize: "0.65rem", color: "#ffde00", letterSpacing: "0.05em" }}>
                             <strong>Pokédex #:</strong> {state.pokemon!.id}
                           </p>
-                          <p className="font-mono">
+                          <p style={{ fontFamily: "var(--font-press-start), monospace", fontSize: "0.65rem", color: "#ffde00", letterSpacing: "0.05em" }}>
                             <strong>Type(s):</strong> {getTypeString(state.pokemon!.types)}
                           </p>
-                          <p className="mt-2 font-mono">
+                          <p style={{ marginTop: "8px", fontFamily: "var(--font-press-start), monospace", fontSize: "0.65rem", color: "#ffde00", letterSpacing: "0.05em" }}>
                             <strong>Description:</strong>
                           </p>
-                          <p className="text-sm font-mono">{state.pokemonDescription}</p>
+                          <p style={{ fontSize: "0.6rem", fontFamily: "var(--font-press-start), monospace", color: "#ffde00", letterSpacing: "0.03em", lineHeight: "1.8" }}>{state.pokemonDescription}</p>
                           <div className="mt-4 space-y-4">
                             <div className="flex justify-center">
                               <Button
@@ -433,7 +433,7 @@ export function Game() {
                                     setIsTransitioning(false)
                                   }
                                 }}
-                                className="secondary hover:bg-blue-700 w-full"
+                                className="btn-next-pokemon w-full btn-retro"
                                 disabled={isTransitioning}
                               >
                                 {isTransitioning ? "Loading..." : "Next Pokémon"}
@@ -457,57 +457,108 @@ export function Game() {
                     <Button
                       onClick={() => handleGuessWrapper()}
                       disabled={state.gameOver || !state.guess}
-                      className="flex-1 secondary hover:bg-[#2a37a3] border-none"
+                      className="flex-1 secondary hover:bg-[#2a37a3] border-none btn-retro"
                     >
                       Guess!
                     </Button>
                     <Button
                       onClick={handleShowClue}
-                      variant="outline"
                       disabled={state.gameOver || state.clueCount >= 4}
-                      className="flex-1 bg-blue-400 hover:bg-blue-500 border-none text-white"
+                      className="flex-1 btn-retro text-white border-none"
+                      style={{
+                        background: "#3b7ec8",
+                        borderColor: "#1e4d8b",
+                        border: "2px solid #1e4d8b",
+                        boxShadow: "4px 4px 0px #0d0d1a",
+                      }}
                     >
                       Show Clue
                     </Button>
                     <Button
                       onClick={handleSkip}
-                      variant="secondary"
                       disabled={state.gameOver}
-                      className="flex-1 tertiary hover:bg-[#cc0000] border-none text-white"
+                      className="flex-1 tertiary text-white btn-retro border-none"
                     >
                       Skip
                     </Button>
                   </div>
 
-                  {/* Attempts display */}
+                  {/* Attempts display - Health slots */}
                   <div className="flex flex-col items-center gap-2 mb-4 w-full">
                     {Array(5)
                       .fill(null)
-                      .map((_, index) => (
-                        <div
-                          key={index}
-                          className={`w-full max-w-xs h-10 border-2 flex flex-row items-center justify-between px-2 text-xs rounded-md ${
-                            index < state.incorrectGuesses.length
-                              ? state.isCorrect && index === state.incorrectGuesses.length - 1
-                                ? "bg-green-200 border-green-500"
-                                : state.incorrectGuesses[index] === "Skipped"
-                                  ? "bg-orange-200 border-orange-500"
-                                  : "bg-red-200 border-red-500"
-                              : "light border-gray-300"
-                          }`}
-                        >
-                          <span className="font-bold">Attempt {index + 1}</span>
-                          {index < state.incorrectGuesses.length && (
-                            <span>
-                              {state.incorrectGuesses[index] === "Clue"
-                                ? "Clue"
-                                : state.incorrectGuesses[index] === "Skipped"
-                                  ? "Skipped"
-                                  : state.incorrectGuesses[index]}
-                            </span>
-                          )}
-                        </div>
-                      ))}
+                      .map((_, index) => {
+                        const isAttempted = index < state.incorrectGuesses.length;
+                        const isSuccess = state.isCorrect && index === state.incorrectGuesses.length - 1;
+                        const isSkipped = isAttempted && state.incorrectGuesses[index] === "Skipped";
+                        const isBroken = isAttempted && !isSuccess;
+
+                        return (
+                          <div
+                            key={index}
+                            className={`health-slot w-full max-w-xs h-8 transition-all duration-300 ${
+                              isAttempted
+                                ? isSuccess
+                                  ? "success"
+                                  : isSkipped
+                                    ? "skipped"
+                                    : "filled"
+                                : ""
+                            }`}
+                          >
+                            <div className="flex items-center justify-center h-full px-2 relative z-10" style={{ gap: "6px" }}>
+                              {/* Pixel heart SVG */}
+                              {isBroken ? (
+                                <svg width="12" height="12" viewBox="0 0 8 8" style={{ imageRendering: "pixelated", flexShrink: 0 }} fill="white">
+                                  {/* broken heart - left half */}
+                                  <rect x="0" y="1" width="1" height="1"/>
+                                  <rect x="1" y="0" width="2" height="1"/>
+                                  <rect x="0" y="2" width="3" height="2"/>
+                                  <rect x="1" y="4" width="2" height="1"/>
+                                  <rect x="2" y="5" width="1" height="1"/>
+                                  <rect x="3" y="6" width="1" height="1"/>
+                                  {/* crack */}
+                                  <rect x="3" y="2" width="1" height="1" fill="rgba(0,0,0,0.5)"/>
+                                  <rect x="4" y="3" width="1" height="1" fill="rgba(0,0,0,0.5)"/>
+                                  {/* right half */}
+                                  <rect x="5" y="1" width="1" height="1"/>
+                                  <rect x="5" y="0" width="2" height="1"/>
+                                  <rect x="4" y="2" width="3" height="2"/>
+                                  <rect x="5" y="4" width="2" height="1"/>
+                                  <rect x="4" y="5" width="2" height="1"/>
+                                  <rect x="4" y="6" width="1" height="1"/>
+                                </svg>
+                              ) : (
+                                <svg width="12" height="12" viewBox="0 0 8 8" style={{ imageRendering: "pixelated", flexShrink: 0 }} fill="white">
+                                  <rect x="0" y="1" width="3" height="1"/>
+                                  <rect x="5" y="1" width="3" height="1"/>
+                                  <rect x="0" y="2" width="8" height="2"/>
+                                  <rect x="1" y="4" width="6" height="1"/>
+                                  <rect x="2" y="5" width="4" height="1"/>
+                                  <rect x="3" y="6" width="2" height="1"/>
+                                  <rect x="4" y="7" width="0" height="1"/>
+                                  <rect x="1" y="0" width="2" height="1"/>
+                                  <rect x="5" y="0" width="2" height="1"/>
+                                </svg>
+                              )}
+                              <span style={{ color: "white", fontSize: "0.6rem", fontFamily: "var(--font-press-start), monospace", letterSpacing: "0.04em" }}>
+                                Attempt {index + 1}
+                              </span>
+                              {isAttempted && !isSuccess && !isSkipped && (
+                                <span style={{ color: "rgba(255,255,255,0.9)", fontSize: "0.6rem", fontFamily: "var(--font-press-start), monospace", letterSpacing: "0.04em" }}>
+                                  — {state.incorrectGuesses[index]}
+                                </span>
+                              )}
+                              {isSuccess && (
+                                <span style={{ color: "white", fontSize: "0.6rem", fontFamily: "var(--font-press-start), monospace" }}>✓</span>
+                              )}
+                              {isSkipped && (
+                                <span style={{ color: "rgba(255,255,255,0.8)", fontSize: "0.6rem", fontFamily: "var(--font-press-start), monospace" }}>— Skip</span>
+                              )}
+                            </div>
+                          </div>
+                        );
+                      })}
                   </div>
                 </div>
 
@@ -536,10 +587,11 @@ export function Game() {
         </div>
       </div>
 
-      {/* Footer remains the same */}
+      {/* Footer improved with separator */}
       <footer className="mt-8 text-center">
-        <p>Created by juliocodex</p>
-        <div className="flex justify-center space-x-4 mt-2">
+        <div className="footer-separator mx-auto"></div>
+        <p className="text-sm font-pixel text-[#1a1a2e]">Created by juliocodex</p>
+        <div className="flex justify-center space-x-6 mt-3">
           <a
             href="https://github.com/JulioPancorbo"
             target="_blank"
@@ -558,8 +610,7 @@ export function Game() {
             href="https://www.linkedin.com/in/juliopancorbo/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:opacity-75 transition-opacity"
-            style={{ color: "#0A66C2" }}
+            className="text-[#1a1a2e] hover:opacity-75 transition-opacity"
           >
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -573,9 +624,9 @@ export function Game() {
             href="https://www.buymeacoffee.com/juliocodex"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:opacity-75 transition-opacity"
+            className="text-[#1a1a2e] hover:opacity-75 transition-opacity"
           >
-            <svg className="w-6 h-6" role="img" viewBox="0 0 24 24" fill="#0D0C22" xmlns="http://www.w3.org/2000/svg">
+            <svg className="w-6 h-6" role="img" viewBox="0 0 24 24" fill="#1a1a2e" xmlns="http://www.w3.org/2000/svg">
               <title>Buy Me A Coffee</title>
               <path d="M20.216 6.415l-.132-.666c-.119-.598-.388-1.163-1.001-1.379-.197-.069-.42-.098-.57-.241-.152-.143-.196-.366-.231-.572-.065-.378-.125-.756-.192-1.133-.057-.325-.102-.69-.25-.987-.195-.4-.597-.634-.996-.788a5.723 5.723 0 00-.626-.194c-1-.263-2.05-.36-3.077-.416a25.834 25.834 0 00-3.7.062c-.915.083-1.88.184-2.75.5-.318.116-.646.256-.888.501-.297.302-.393.77-.177 1.146.154.267.415.456.692.58.36.162.737.284 1.123.366 1.075.238 2.189.331 3.287.37 1.218.05 2.437.01 3.65-.118.299-.033.598-.073.896-.119.352-.054.578-.513.474-.834-.124-.383-.457-.531-.834-.473-.466.074-.96.108-1.382.146-1.177.08-2.358.082-3.536.006a22.228 22.228 0 01-1.157-.107c-.086-.01-.18-.025-.258-.036-.243-.036-.484-.08-.724-.13-.111-.027-.111-.185 0-.212h.005c.277-.06.557-.108.838-.147h.002c.131-.009.263-.032.394-.048a25.076 25.076 0 013.426-.12c.674.019 1.347.067 2.017.144l.228.031c.267.04.533.088.798.145.392.085.895.113 1.07.542.055.137.08.288.111.431l.319 1.484a.237.237 0 01-.199.284h-.003c-.037.006-.075.01-.112.015a36.704 36.704 0 01-4.743.295 37.059 37.059 0 01-4.699-.304c-.14-.017-.293-.042-.417-.06-.326-.048-.649-.108-.973-.161-.393-.065-.768-.032-1.123.161-.29.16-.527.404-.675.701-.154.316-.199.66-.267 1-.069.34-.176.707-.135 1.056.087.753.613 1.365 1.37 1.502a39.69 39.69 0 0011.343.376.483.483 0 01.535.53l-.071.697-1.018 9.907c-.041.41-.047.832-.125 1.237-.122.637-.553 1.028-1.182 1.171-.577.131-1.165.2-1.756.205-.656.004-1.31-.025-1.966-.022-.699.004-1.556-.06-2.095-.58-.475-.458-.54-1.174-.605-1.793l-.731-7.013-.322-3.094c-.037-.351-.286-.695-.678-.678-.336.015-.718.3-.678.679l.228 2.185.949 9.112c.147 1.344 1.174 2.068 2.446 2.272.742.12 1.503.144 2.257.156.966.016 1.942.053 2.892-.122 1.408-.258 2.465-1.198 2.616-2.657.34-3.332.683-6.663 1.024-9.995l.215-2.087a.484.484 0 01.39-.426c.402-.078.787-.212 1.074-.518.455-.488.546-1.124.385-1.766zm-1.478.772c-.145.137-.363.201-.578.233-2.416.359-4.866.54-7.308.46-1.748-.06-3.477-.254-5.207-.498-.17-.024-.353-.055-.47-.18-.22-.236-.111-.71-.054-.995.052-.26.152-.609.463-.646.484-.057 1.046.148 1.526.22.577.088 1.156.159 1.737.212 2.48.226 5.002.19 7.472-.14.45-.06.899-.13 1.345-.21.399-.072.84-.206 1.08.206.166.281.188.657.162.974a.544.544 0 01-.169.364zm-6.159 3.9c-.862.37-1.84.788-3.109.788a5.884 5.884 0 01-1.569-.217l.877 9.004c.065.78.717 1.38 1.5 1.38 0 0 1.243.065 1.658.065.447 0 1.786-.065 1.786-.065.783 0 1.434-.6 1.499-1.38l.94-9.95a3.996 3.996 0 00-1.322-.238c-.826 0-1.491.284-2.26.613z"/>
             </svg>

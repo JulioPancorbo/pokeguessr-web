@@ -1,6 +1,6 @@
 import "./globals.css"
 import type { Metadata } from "next"
-import { Chewy } from "next/font/google"
+import { Chewy, Press_Start_2P } from "next/font/google"
 import type React from "react"
 import Script from "next/script"
 
@@ -8,6 +8,13 @@ const chewy = Chewy({
   weight: "400",
   subsets: ["latin"],
   display: "swap",
+})
+
+export const pressStart2P = Press_Start_2P({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-press-start",
 })
 
 export const metadata: Metadata = {
@@ -40,7 +47,7 @@ export default function RootLayout({
      crossOrigin="anonymous"></script>            
         
         </head>
-      <body className={chewy.className}>{children}</body>
+      <body className={`${chewy.className} ${pressStart2P.variable}`}>{children}</body>
     </html>
   )
 }

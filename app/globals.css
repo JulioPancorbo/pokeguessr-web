@@ -66,17 +66,283 @@
   }
 
   .primary {
-    background: #ffde00 !important;
+    background-color: #ffde00 !important;
+    background-image: radial-gradient(circle, #e6c800 1.5px, transparent 1.5px) !important;
+    background-size: 20px 20px !important;
   }
 
   .secondary {
-    background: #3b4cca !important;
+    background: #4a5fd4 !important;
+    border: 2px solid #2a3fa3 !important;
     color: white !important;
+    box-shadow: 4px 4px 0px #0d0d1a !important;
+  }
+
+  .secondary:hover:not(:disabled) {
+    background: #5a6fe4 !important;
+    box-shadow: 5px 5px 0px #0d0d1a !important;
+  }
+
+  .secondary:active:not(:disabled) {
+    transform: translate(3px, 3px) !important;
+    box-shadow: 1px 1px 0px #0d0d1a !important;
   }
 
   .tertiary {
-    background: #ff0000 !important;
+    background: #e63946 !important;
+    border: 2px solid #a71c2a !important;
     color: white !important;
+    box-shadow: 4px 4px 0px #0d0d1a !important;
+  }
+
+  .tertiary:hover:not(:disabled) {
+    background: #f63c56 !important;
+    box-shadow: 5px 5px 0px #0d0d1a !important;
+  }
+
+  .tertiary:active:not(:disabled) {
+    transform: translate(3px, 3px) !important;
+    box-shadow: 1px 1px 0px #0d0d1a !important;
+  }
+
+  .btn-retro {
+    border-radius: 3px !important;
+    box-shadow: 4px 4px 0px #1a1a2e !important;
+    transition: transform 0.08s ease, box-shadow 0.08s ease !important;
+  }
+
+  .btn-retro:hover {
+    box-shadow: 5px 5px 0px #1a1a2e !important;
+  }
+
+  .btn-retro:active {
+    transform: translate(3px, 3px) !important;
+    box-shadow: 1px 1px 0px #1a1a2e !important;
+  }
+
+  .btn-retro:disabled {
+    box-shadow: 2px 2px 0px #1a1a2e !important;
+    opacity: 0.5 !important;
+  }
+
+  /* Retro Arcade Card Styling */
+  .card-retro {
+    background: linear-gradient(135deg, #2a3f8f 0%, #1a2860 100%) !important;
+    border-radius: 2px !important;
+    box-shadow: 6px 6px 0px #1a1a2e, inset 0 0 15px rgba(0, 0, 0, 0.5) !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  /* CRT Scanlines Effect */
+  .card-retro::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.15) 0px,
+      rgba(0, 0, 0, 0.15) 1px,
+      transparent 1px,
+      transparent 2px
+    ) !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+  }
+
+  /* Ensure content appears above scanlines */
+  .card-retro > * {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  .card-retro-inner {
+    background: linear-gradient(135deg, rgba(58, 90, 180, 0.3) 0%, rgba(26, 40, 96, 0.2) 100%) !important;
+    border-radius: 0px !important;
+    box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 0.1) !important;
+    color: #e8eaf6 !important;
+  }
+
+  /* Retro panel for Generation / Stats cards */
+  .panel-retro {
+    background: #1a1a2e !important;
+    border-radius: 2px !important;
+    border: 2px solid #ffde00 !important;
+    box-shadow: 4px 4px 0px #0d0d1a !important;
+    position: relative !important;
+  }
+
+  .panel-retro-label {
+    font-family: var(--font-press-start), monospace !important;
+    font-size: 0.5rem !important;
+    color: #ffde00 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    border-bottom: 1px solid rgba(255, 222, 0, 0.3) !important;
+    padding-bottom: 0.5rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  /* Buttons inside panels should NOT look like arcade buttons - just text */
+  .panel-retro button {
+    border-radius: 0px !important;
+    box-shadow: none !important;
+    transition: opacity 0.2s ease !important;
+    background: transparent !important;
+    color: #ffde00 !important;
+    border: none !important;
+    font-family: var(--font-press-start), monospace !important;
+    font-size: 0.5rem !important;
+    letter-spacing: 0.05em !important;
+    cursor: pointer !important;
+  }
+
+  .panel-retro button:hover {
+    opacity: 0.7 !important;
+  }
+
+  .panel-retro button:active {
+    transform: none !important;
+  }
+
+  /* Generation selector buttons override */
+  .panel-retro button.gen-btn {
+    border: 2px solid #ffde00 !important;
+    background: transparent !important;
+    color: #ffde00 !important;
+    border-radius: 4px !important;
+    opacity: 1 !important;
+  }
+
+  .panel-retro button.gen-btn:hover {
+    background: rgba(255, 222, 0, 0.2) !important;
+    opacity: 1 !important;
+  }
+
+  .panel-retro button.gen-btn-selected {
+    background: #ffde00 !important;
+    color: #1a1a2e !important;
+    border: 2px solid #ffde00 !important;
+    border-radius: 4px !important;
+    opacity: 1 !important;
+  }
+
+  .panel-retro button.gen-btn-selected:hover {
+    background: #e6c800 !important;
+    opacity: 1 !important;
+  }
+
+  /* White text for success message */
+  .success-message {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important;
+  }
+
+  /* Next button color - yellow arcade consistency */
+  .btn-next-pokemon {
+    background: #ffde00 !important;
+    border: 2px solid #d4b800 !important;
+    color: #1a1a2e !important;
+    box-shadow: 4px 4px 0px #0d0d1a !important;
+  }
+
+  .btn-next-pokemon:hover:not(:disabled) {
+    background: #f0e800 !important;
+    box-shadow: 5px 5px 0px #0d0d1a !important;
+  }
+
+  .btn-next-pokemon:active:not(:disabled) {
+    transform: translate(3px, 3px) !important;
+    box-shadow: 1px 1px 0px #0d0d1a !important;
+  }
+
+  /* Apply retro font globally */
+  main {
+    font-family: var(--font-press-start), monospace !important;
+    letter-spacing: -0.02em;
+  }
+
+  /* Retro font size variants */
+  .text-retro-xs {
+    font-family: var(--font-press-start), monospace !important;
+    font-size: 0.4rem !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  .text-retro-sm {
+    font-family: var(--font-press-start), monospace !important;
+    font-size: 0.55rem !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  .text-retro-base {
+    font-family: var(--font-press-start), monospace !important;
+    font-size: 0.65rem !important;
+    letter-spacing: 0.03em !important;
+  }
+
+  .text-retro-lg {
+    font-family: var(--font-press-start), monospace !important;
+    font-size: 0.8rem !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  /* Adjust StatsDisplay text inside panel */
+  .panel-retro p, .panel-retro span, .panel-retro div {
+    font-family: var(--font-press-start), monospace !important;
+    font-size: 0.55rem !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  /* Input field retro arcade */
+  input[placeholder="Enter Pokémon name"],
+  input.pokemon-input {
+    background: #ffffff !important;
+    border: 3px solid #1a1a2e !important;
+    color: #1a1a2e !important;
+    border-radius: 2px !important;
+    box-shadow: 5px 5px 0px #0d0d1a !important;
+    padding: 12px 14px !important;
+    font-family: var(--font-press-start), monospace !important;
+    font-size: 0.7rem !important;
+    letter-spacing: 0.02em !important;
+    transition: all 0.2s ease !important;
+  }
+
+  input[placeholder="Enter Pokémon name"]::placeholder,
+  input.pokemon-input::placeholder {
+    color: rgba(26, 26, 46, 0.5) !important;
+  }
+
+  input[placeholder="Enter Pokémon name"]:focus,
+  input.pokemon-input:focus {
+    outline: none !important;
+    box-shadow: 5px 5px 0px #0d0d1a, 0 0 16px rgba(26, 26, 46, 0.4) !important;
+  }
+
+  /* Button text retro */
+  main button {
+    font-family: var(--font-press-start), monospace !important;
+    font-size: 0.65rem !important;
+    letter-spacing: 0.03em !important;
+    text-transform: uppercase !important;
+  }
+
+  /* Clues section retro */
+  main h3, main ol, main li {
+    font-family: var(--font-press-start), monospace !important;
+    font-size: 0.6rem !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  /* Footer text retro */
+  footer p, footer a {
+    font-family: var(--font-press-start), monospace !important;
+    font-size: 0.5rem !important;
+    letter-spacing: 0.05em !important;
   }
 
   .dangerr {
@@ -85,6 +351,76 @@
 
   .light {
     background: #ffffff !important;
+  }
+
+  .font-pixel {
+    font-family: var(--font-press-start), monospace;
+    letter-spacing: -0.02em;
+  }
+
+  /* Paso #5: Health slots styling */
+  @keyframes fill-health {
+    from {
+      width: 0%;
+      background-color: #ef4444;
+    }
+    to {
+      width: 100%;
+      background-color: #22c55e;
+    }
+  }
+
+  .health-slot {
+    background: linear-gradient(135deg, #3a3a5a 0%, #2a2a4a 100%) !important;
+    border: 2px solid rgba(255,222,0,0.4) !important;
+    border-radius: 2px !important;
+    box-shadow: 4px 4px 0px #0d0d1a, inset 0 1px 3px rgba(0,0,0,0.5) !important;
+    overflow: hidden !important;
+    position: relative !important;
+  }
+
+  .health-slot.filled {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+    border: 2px solid #ad1d1d !important;
+  }
+
+  .health-slot.success {
+    background: linear-gradient(90deg, #22c55e, #16a34a) !important;
+    border: 2px solid #15803d !important;
+  }
+
+  .health-slot.skipped {
+    background: linear-gradient(90deg, #f97316, #ea580c) !important;
+  }
+
+  .health-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #22c55e, #16a34a);
+    animation: fill-health 0.4s ease-out forwards;
+  }
+
+  /* Paso #6: Breathing animation for silhouette */
+  @keyframes breathing {
+    0%, 100% {
+      opacity: 0.85;
+      filter: brightness(0) drop-shadow(0 0 4px rgba(255, 255, 255, 0.15));
+    }
+    50% {
+      opacity: 1;
+      filter: brightness(0) drop-shadow(0 0 10px rgba(255, 222, 0, 0.4));
+    }
+  }
+
+  .silhouette-breathing {
+    animation: breathing 2.5s ease-in-out infinite !important;
+  }
+
+  /* Paso #7: Footer separator */
+  .footer-separator {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #1a1a2e, transparent);
+    margin: 1rem 0;
   }
 }
 
