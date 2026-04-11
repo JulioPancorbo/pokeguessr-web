@@ -1,4 +1,10 @@
+import type { Metadata } from "next"
 import Link from "next/link"
+
+export const metadata: Metadata = {
+  title: "PokéGuessr Privacy Policy - Data Protection",
+  description: "Read PokéGuessr's privacy policy. Learn how we handle your data, use cookies, and protect your information while playing our free Pokémon guessing game.",
+}
 
 export default function PrivacyPolicy() {
   return (

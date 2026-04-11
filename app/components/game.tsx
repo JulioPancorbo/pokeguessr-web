@@ -19,6 +19,8 @@ import { MobileMenu } from "./mobile-menu"
 import { GameHeader } from "./game-header"
 import Link from "next/link"
 import { STORAGE_PREFIX } from "../config/storage-config"
+import { GameAbout } from "./game-about"
+import { Footer } from "./footer"
 
 const generations = []
 
@@ -274,6 +276,9 @@ export function Game() {
       <h1 className="font-pixel text-xl sm:text-2xl font-bold mb-3 text-center mt-8 sm:mt-0 text-[#1a1a2e] drop-shadow-[2px_2px_0px_rgba(255,255,255,0.5)]">PokéGuessr</h1>
       <h2 className="text-lg sm:text-xl mb-6 text-[#3b4cca] text-center font-bold tracking-wide">Who's that Pokémon?</h2>
 
+      {/* About Game Section - SEO Content */}
+      <GameAbout />
+
       <div className="w-full max-w-6xl">
         <div className="flex flex-col items-center">
           {/* Header section with generation selector and stats - Only visible on desktop */}
@@ -343,7 +348,7 @@ export function Game() {
                             {!isTransitioning && (
                               <Image
                                 src={getCurrentSprite() || "/placeholder.svg"}
-                                alt="Pokemon silhouette"
+                                alt="Guess this Pokémon silhouette puzzle - Can you identify it?"
                                 width={200}
                                 height={200}
                                 className="object-contain filter brightness-0 silhouette-breathing"
@@ -632,12 +637,10 @@ export function Game() {
             </svg>
           </a>
         </div>
-        <div className="flex justify-center space-x-4 mt-4">
-          <Link href="/privacy-policy" className="text-gray-600 hover:text-gray-800">
-            Privacy Policy
-          </Link>
-        </div>
       </footer>
+      
+      {/* Footer Component */}
+      <Footer />
     </main>
   )
 }

@@ -1,0 +1,77 @@
+# PokéGuessr - Free Pokémon Guessing Game
+
+## Overview
+PokéGuessr is a free browser-based game where you identify Pokémon from their silhouettes. No account required, works on all devices.
+
+## Key Features
+- Identify Pokémon from silhouettes
+- 1000+ Pokémon (Generations 1-9)
+- Progressive clue system (4 levels of hints)
+- Statistics tracking (win rate, streaks, games played)
+- Fully responsive (mobile/desktop/tablet)
+- Free and ad-supported
+- Works offline after first load
+- No download or registration needed
+
+## Main Website
+https://pokeguessr.com
+
+## FAQ & Help
+https://pokeguessr.com/faq
+
+## How to Play
+1. A Pokémon silhouette appears on screen
+2. Type the Pokémon name in the search box
+3. You get up to 5 incorrect guesses per round
+4. Use hints strategically to narrow down your choices
+5. Guess correctly to advance and build your streak
+6. View your statistics automatically
+
+## Game Rules
+- 5 incorrect guesses per Pokémon = game over
+- Correct guesses don't count against your limit
+- Skip button available to move to next Pokémon
+- Hints cost 1 attempt each (optional)
+- Win streak resets on loss
+
+## Generations Included
+Pokémon from all 9 generations (1000+ total):
+- Generation 1-2: Classic era
+- Generation 3-5: Modern expansion
+- Generation 6-9: Contemporary Pokémon
+
+## Gameplay Modes
+- Filter by single generation
+- Mix all generations together
+- View statistics and achievements
+
+## Technology
+Built with:
+- Next.js 14 (React framework)
+- TypeScript for type safety
+- Tailwind CSS for responsive design
+- PokéAPI for Pokémon data
+- Framer Motion for smooth animations
+
+## Browser Support
+Works with all modern browsers:
+- Chrome/Chromium-based browsers
+- Firefox
+- Safari
+- Edge
+- Brave, Vivaldi, and other Chromium variants
+
+## Platform Support
+- Desktop (Windows, Mac, Linux)
+- Mobile (iOS, Android)
+- Tablet (iPad, Android tablets)
+
+## Data & Privacy
+- Statistics saved locally in browser storage
+- No personal data collected
+- No account creation required
+- Offline functionality available
+- Clear cache option to reset statistics
+
+## Contact & Support
+For issues or feedback, visit the FAQ page or check GitHub repository.

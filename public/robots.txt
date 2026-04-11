@@ -1,0 +1,21 @@
+# robots.txt for PokéGuessr
+# Allows all legitimate bots, disallows private API endpoints
+
+User-agent: *
+Allow: /
+Allow: /privacy-policy
+
+# Disallow private/admin routes (if any)
+Disallow: /api/
+Disallow: /api/*.json$
+Disallow: /_next/
+Disallow: /static/
+
+# Disallow non-index crawling of querystring
+Disallow: /*?*
+
+# Sitemap location
+Sitemap: https://pokeguessr.com/sitemap.xml
+
+# Crawl delay (optional - be friendly)
+Crawl-delay: 1
