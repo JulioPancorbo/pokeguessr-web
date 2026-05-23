@@ -1,8 +1,10 @@
 import "./globals.css"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Chewy, Press_Start_2P } from "next/font/google"
 import type React from "react"
 import Script from "next/script"
+
+const siteUrl = "https://www.pokeguessr.es"
 
 const chewy = Chewy({
   weight: "400",
@@ -18,6 +20,7 @@ export const pressStart2P = Press_Start_2P({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "PokéGuessr",
   description:
     "Test your Pokémon knowledge! Try to identify Pokémon from their silhouettes in this fun guessing game. Features all generations, statistics tracking, and various game modes.",
@@ -33,11 +36,13 @@ export const metadata: Metadata = {
     "PokeGuessr",
   ],
   generator: 'v0.app',
-  viewport: "width=device-width, initial-scale=1",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "PokéGuessr - Free Pokémon Guessing Game Online",
     description: "Play the ultimate Pokémon guessing game! Identify Pokémon from silhouettes and test your knowledge. Free game, no download required.",
-    url: "https://pokeguessr.com",
+    url: siteUrl,
     type: "website",
     images: [
       {
@@ -56,6 +61,11 @@ export const metadata: Metadata = {
   },
 }
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -66,7 +76,7 @@ export default function RootLayout({
     "@type": "VideoGame",
     "name": "PokéGuessr",
     "description": "A free online Pokémon guessing game where players identify Pokémon from their silhouettes",
-    "url": "https://pokeguessr.com",
+    "url": siteUrl,
     "applicationCategory": "Game",
     "gamePlayMode": "SinglePlayer",
     "genre": ["Quiz", "Educational"],

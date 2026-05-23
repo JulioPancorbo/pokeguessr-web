@@ -14,10 +14,10 @@ PokéGuessr is a free browser-based game where you identify Pokémon from their 
 - No download or registration needed
 
 ## Main Website
-https://pokeguessr.com
+https://www.pokeguessr.es
 
 ## FAQ & Help
-https://pokeguessr.com/faq
+https://www.pokeguessr.es/faq
 
 ## How to Play
 1. A Pokémon silhouette appears on screen

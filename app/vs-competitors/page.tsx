@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: "PokéGuessr vs Pokémon Quiz vs Gearoid - Comparison",
   description:
     "Compare PokéGuessr with other free Pokémon guessing games. See feature differences, gameplay modes, and which suits you best.",
+  alternates: {
+    canonical: "/vs-competitors",
+  },
   keywords: [
     "pokeguessr vs pokemonquiz",
     "best pokemon guessing game",
@@ -129,7 +132,7 @@ function generateComparisonSchema() {
       {
         "@type": "Product",
         "name": "PokéGuessr",
-        "url": "https://pokeguessr.com",
+        "url": "https://www.pokeguessr.es",
       },
       {
         "@type": "Product",

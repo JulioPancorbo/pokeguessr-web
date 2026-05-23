@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "PokéGuessr FAQ - Frequently Asked Questions",
   description:
     "Get answers to commonly asked questions about PokéGuessr. Learn how to play, tips, features, and more about our free Pokémon guessing game.",
+  alternates: {
+    canonical: "/faq",
+  },
   keywords: [
     "pokeguessr faq",
     "how to play pokeguessr",
@@ -31,7 +34,7 @@ const faqItems = [
       {
         question: "Do I need to download anything?",
         answer:
-          "No! PokéGuessr is 100% web-based. Just visit pokeguessr.com in any modern web browser on desktop, tablet, or mobile. The game caches Pokémon data locally, so it works offline after the first load.",
+          "No! PokéGuessr is 100% web-based. Just visit www.pokeguessr.es in any modern web browser on desktop, tablet, or mobile. The game caches Pokémon data locally, so it works offline after the first load.",
       },
       {
         question: "Is PokéGuessr completely free?",
