@@ -2,7 +2,8 @@ import "./globals.css"
 import type { Metadata, Viewport } from "next"
 import { Chewy, Press_Start_2P } from "next/font/google"
 import type React from "react"
-import Script from "next/script"
+import { DesktopAdsShell } from "./components/desktop-ads-shell"
+import { ADSENSE_CLIENT } from "./config/ads-config"
 
 const siteUrl = "https://www.pokeguessr.es"
 
@@ -100,13 +101,15 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
         />
-        <Script
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2924464423031513"
-          strategy="afterInteractive"
+        <script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
           crossOrigin="anonymous"
         />
       </head>
-      <body className={`${chewy.className} ${pressStart2P.variable}`}>{children}</body>
+      <body className={`${chewy.className} ${pressStart2P.variable}`}>
+        <DesktopAdsShell>{children}</DesktopAdsShell>
+      </body>
     </html>
   )
 }
