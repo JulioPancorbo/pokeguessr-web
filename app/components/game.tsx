@@ -351,6 +351,7 @@ export function Game() {
                                 alt="Guess this Pokémon silhouette puzzle - Can you identify it?"
                                 width={200}
                                 height={200}
+                                unoptimized
                                 className="object-contain filter brightness-0 silhouette-breathing"
                                 style={{ imageRendering: "pixelated" }}
                               />
@@ -367,6 +368,7 @@ export function Game() {
                               alt={`Revealed Pokemon: ${capitalizeFirstLetter(state.pokemon!.name)}${getCurrentSprite().includes("shiny") ? " (Shiny)" : ""}`}
                               width={200}
                               height={200}
+                              unoptimized
                               className="object-contain"
                               style={{ imageRendering: "pixelated" }}
                             />
