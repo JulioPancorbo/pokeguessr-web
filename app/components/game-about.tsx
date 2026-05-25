@@ -1,265 +1,105 @@
-'use client'
+import Link from "next/link"
 
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import {
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
-} from "@/components/ui/accordion"
+const quickGuides = [
+  {
+    title: "How to Play PokéGuessr",
+    description:
+      "Learn the rules, how hints work, how guesses are counted, and the fastest way to enjoy the game from your first session.",
+    href: "/guides/how-to-play",
+  },
+  {
+    title: "Silhouette Strategy Guide",
+    description:
+      "Train your eye to read tails, horns, wings, stance, and body proportions before typing your guess.",
+    href: "/guides/silhouette-strategy",
+  },
+  {
+    title: "Pokémon Generations Guide",
+    description:
+      "See which generations usually feel easier, which are harder, and how to build a better practice order.",
+    href: "/guides/pokemon-generations-guide",
+  },
+]
 
 export function GameAbout() {
-  const [isOpen, setIsOpen] = useState(false)
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.08,
-        delayChildren: 0.1,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: 'easeOut' },
-    },
-  }
-
-  const sections = [
-    {
-      title: "What is PokéGuessr?",
-      icon: "🎮",
-      content: "PokéGuessr is a free online Pokémon guessing game where players identify Pokémon from their silhouettes. Challenge yourself to recognize all 1000+ Pokémon across every generation, from Generation 1 through the latest releases. This interactive Pokémon quiz tests your knowledge and improves your recognition skills.",
-      type: "text"
-    },
-    {
-      title: "How to Play",
-      icon: "📋",
-      content: [
-        "A Pokémon silhouette appears on screen",
-        "Try to identify which Pokémon it is in the search box",
-        "You have up to 5 guesses per round",
-        "Use hints to help narrow down your choice",
-        "Select specific generations to filter Pokémon",
-        "Track your win rate and streaks"
-      ],
-      type: "list"
-    },
-    {
-      title: "Game Features",
-      icon: "⭐",
-      content: [
-        { label: "Generation Selection", desc: "Filter Pokémon by generation (Gen 1-9)" },
-        { label: "Statistics Tracking", desc: "Monitor your performance with win rate and streak tracking" },
-        { label: "Multiple Sprites", desc: "View Pokémon in different poses including shiny variants" },
-        { label: "Hints & Clues", desc: "Get hints about type, height, and other attributes" },
-        { label: "Offline Ready", desc: "Play anytime with cached Pokémon data" },
-        { label: "100% Free", desc: "No registration or downloads required" }
-      ],
-      type: "features"
-    },
-    {
-      title: "Why Play?",
-      icon: "🏆",
-      content: "Whether you're a casual Pokémon fan or a dedicated trainer, PokéGuessr offers hours of entertainment. Test your knowledge, improve your recognition skills, and compete with friends across all Pokémon generations!",
-      type: "text"
-    }
-  ]
-
   return (
-    <motion.div 
-      className="w-full max-w-4xl mx-auto mb-4"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
-      {/* SEO-Friendly Static Content Preview - Compact */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-        <div className="bg-gradient-to-br from-slate-800/50 to-red-900/30 border border-red-500/30 p-2 rounded-lg">
-          <h3 className="font-bold text-red-300 text-xs mb-1 flex items-center gap-1">
-            <span>🎮</span> What is PokéGuessr?
-          </h3>
-          <p className="text-slate-200 text-xs leading-tight">
-            Identify Pokémon from silhouettes. Challenge across 1000+ Pokémon from all generations.
+    <section className="w-full max-w-4xl mx-auto mt-10 space-y-6" aria-labelledby="about-pokeguessr">
+      <div className="panel-retro p-5 sm:p-6">
+        <h2 id="about-pokeguessr" className="panel-retro-label text-center">
+          About PokéGuessr
+        </h2>
+
+        <div className="space-y-4 text-[#fff6bf] text-sm leading-7 sm:text-base sm:leading-8">
+          <p>
+            PokéGuessr is a browser-based Pokémon silhouette game built for players who enjoy recognition,
+            memory, and pattern reading. Each round hides a Pokémon and asks you to identify it from its shape alone,
+            which turns even familiar monsters into a more interesting challenge.
           </p>
-        </div>
-        <div className="bg-gradient-to-br from-slate-800/50 to-red-900/30 border border-red-500/30 p-2 rounded-lg">
-          <h3 className="font-bold text-red-300 text-xs mb-1 flex items-center gap-1">
-            <span>📋</span> How to Play
-          </h3>
-          <p className="text-slate-200 text-xs leading-tight">
-            See silhouette → guess name → 5 attempts max. Use hints to narrow down. Track stats automatically.
+
+          <p>
+            The game works for quick casual sessions, but it also rewards repeat play. You can focus on a single
+            generation, use progressive hints when a silhouette is tricky, and track streaks over time. That makes the
+            experience useful both as a fun quiz and as a lightweight training tool for visual Pokémon recognition.
+          </p>
+
+          <p>
+            What gives PokéGuessr replay value is that silhouettes reward observation rather than simple recall. Tail
+            shape, ears, wings, stance, height, and body proportions all become clues, which is why the game feels more
+            satisfying the more you practice it.
           </p>
         </div>
       </div>
-    </motion.div>
-  )
-}
 
-// Keep the detailed accordion component below for users who want more info
-function GameAboutDetails() {
-  const [isOpen, setIsOpen] = useState(false)
+      <div className="grid gap-4 md:grid-cols-3">
+        <div className="panel-retro p-4">
+          <h3 className="panel-retro-label text-center">Why People Play</h3>
+          <p className="text-[#fff6bf] text-sm leading-7">
+            Some players use PokéGuessr as a fast daily challenge, while others use it to revisit generations they know
+            less well and measure how much their recognition improves over time.
+          </p>
+        </div>
 
-  return (
-    <motion.div 
-      className="w-full max-w-4xl mx-auto"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
-      <style jsx>{`
-        @keyframes scanlines {
-          0% { transform: translateY(-100%); }
-          100% { transform: translateY(100%); }
-        }
-        @keyframes borderGlow {
-          0%, 100% { box-shadow: inset 0 0 20px rgba(239, 68, 68, 0.3), 0 0 20px rgba(239, 68, 68, 0.2); }
-          50% { box-shadow: inset 0 0 30px rgba(239, 68, 68, 0.5), 0 0 30px rgba(239, 68, 68, 0.4); }
-        }
-        .aboutContainer {
-          position: relative;
-          border-radius: 8px;
-          overflow: hidden;
-          animation: borderGlow 3s ease-in-out infinite;
-        }
-        .aboutContainer::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: repeating-linear-gradient(
-            0deg,
-            rgba(0, 0, 0, 0.05),
-            rgba(0, 0, 0, 0.05) 1px,
-            transparent 1px,
-            transparent 2px
-          );
-          pointer-events: none;
-          z-index: 1;
-        }
-      `}</style>
+        <div className="panel-retro p-4">
+          <h3 className="panel-retro-label text-center">What You Practice</h3>
+          <p className="text-[#fff6bf] text-sm leading-7">
+            Generation knowledge, silhouette reading, hint management, streak consistency, and quick filtering between
+            similar-looking Pokémon all become part of improving at the game.
+          </p>
+        </div>
 
-      <Accordion 
-        type="single" 
-        collapsible 
-        className="w-full"
-        onValueChange={(value) => setIsOpen(!!value)}
-      >
-        <AccordionItem value="about" className="border-0 aboutContainer bg-gradient-to-br from-slate-900 via-red-900 to-slate-900 relative">
-          {/* Scanline effect */}
-          <div className="absolute inset-0 pointer-events-none z-10 opacity-0 group-hover:opacity-30" />
-          
-          <AccordionTrigger className="relative z-20 group flex items-center justify-between px-4 py-3 hover:bg-black/20 transition-colors duration-300">
-            <motion.div 
-              className="flex items-center gap-2 text-white"
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: 'spring', stiffness: 400 }}
+        <div className="panel-retro p-4">
+          <h3 className="panel-retro-label text-center">Why It Is Easy to Start</h3>
+          <p className="text-[#fff6bf] text-sm leading-7">
+            You can play immediately in the browser, keep local stats, and come back whenever you want without creating
+            an account or downloading anything.
+          </p>
+        </div>
+      </div>
+
+      <div className="panel-retro p-5 sm:p-6">
+        <h3 className="panel-retro-label text-center">PokéGuessr Guides</h3>
+        <div className="grid gap-4 md:grid-cols-3">
+          {quickGuides.map((guide) => (
+            <Link
+              key={guide.href}
+              href={guide.href}
+              className="block rounded-md border border-[#ffde00]/30 bg-[#10142b] p-4 transition-transform duration-150 hover:-translate-y-0.5 hover:border-[#ffde00]"
             >
-              <motion.span 
-                className="text-2xl"
-                animate={{ y: isOpen ? 0 : [0, -2, 0] }}
-                transition={{ repeat: isOpen ? 0 : Infinity, duration: 2 }}
-              >
-                📱
-              </motion.span>
-              <span className="font-bold text-sm tracking-wide text-red-300 group-hover:text-red-200 transition-colors">
-                About PokéGuessr
-              </span>
-            </motion.div>
-          </AccordionTrigger>
+              <h4 className="mb-2 text-sm sm:text-base font-bold text-[#ffde00]">{guide.title}</h4>
+              <p className="text-[#fff6bf] text-sm leading-6">{guide.description}</p>
+            </Link>
+          ))}
+        </div>
 
-          <AccordionContent className="relative z-20 px-4 pb-4 pt-2">
-            <motion.div 
-              className="space-y-3"
-              variants={containerVariants}
-              initial="hidden"
-              animate={isOpen ? "visible" : "hidden"}
-            >
-              {sections.map((section, idx) => (
-                <motion.div
-                  key={idx}
-                  variants={itemVariants}
-                  className="group"
-                >
-                  {/* Card background with hover effect */}
-                  <div className="relative bg-gradient-to-r from-slate-800/50 to-red-900/30 border-l-4 border-red-500 p-3 rounded hover:from-slate-800/70 hover:to-red-900/50 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/20">
-                    {/* Accent corner */}
-                    <div className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                    
-                    <div className="flex gap-2 mb-2">
-                      <span className="text-xl flex-shrink-0">{section.icon}</span>
-                      <h3 className="font-bold text-white text-sm tracking-wide group-hover:text-red-300 transition-colors">
-                        {section.title}
-                      </h3>
-                    </div>
-
-                    {section.type === "text" && (
-                      <p className="text-slate-200 text-xs leading-relaxed ml-9">
-                        {section.content}
-                      </p>
-                    )}
-
-                    {section.type === "list" && (
-                      <ul className="space-y-1 ml-9">
-                        {section.content.map((item, i) => (
-                          <motion.li
-                            key={i}
-                            className="text-slate-200 text-xs flex gap-2"
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: i * 0.05 }}
-                          >
-                            <span className="text-red-500 flex-shrink-0 font-bold">▸</span>
-                            <span>{item}</span>
-                          </motion.li>
-                        ))}
-                      </ul>
-                    )}
-
-                    {section.type === "features" && (
-                      <div className="space-y-1 ml-9">
-                        {section.content.map((feature, i) => (
-                          <motion.div
-                            key={i}
-                            className="text-xs"
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: i * 0.05 }}
-                          >
-                            <span className="text-red-400 font-bold">{feature.label}:</span>
-                            <span className="text-slate-200 ml-1">{feature.desc}</span>
-                          </motion.div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </motion.div>
-              ))}
-
-              {/* Footer accent */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
-                className="flex items-center justify-end gap-2 mt-3 pt-2 border-t border-red-500/30"
-              >
-                <span className="text-xs text-slate-500 font-mono tracking-wider">
-                  &lt;/ about&gt;
-                </span>
-              </motion.div>
-            </motion.div>
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
-    </motion.div>
+        <div className="mt-5 flex flex-wrap justify-center gap-4 text-sm">
+          <Link href="/guides" className="font-bold text-[#3b4cca] underline hover:text-[#24318f]">
+            Browse all guides
+          </Link>
+          <Link href="/about" className="font-bold text-[#3b4cca] underline hover:text-[#24318f]">
+            About this project
+          </Link>
+        </div>
+      </div>
+    </section>
   )
 }

@@ -276,9 +276,6 @@ export function Game() {
       <h1 className="font-pixel text-xl sm:text-2xl font-bold mb-3 text-center mt-8 sm:mt-0 text-[#1a1a2e] drop-shadow-[2px_2px_0px_rgba(255,255,255,0.5)]">PokéGuessr</h1>
       <h2 className="text-lg sm:text-xl mb-6 text-[#3b4cca] text-center font-bold tracking-wide">Who's that Pokémon?</h2>
 
-      {/* About Game Section - SEO Content */}
-      <GameAbout />
-
       <div className="w-full max-w-6xl">
         <div className="flex flex-col items-center">
           {/* Header section with generation selector and stats - Only visible on desktop */}
@@ -593,6 +590,9 @@ export function Game() {
           </div>
         </div>
       </div>
+
+      {/* About Game Section - SEO Content */}
+      <GameAbout />
 
       {/* Footer improved with separator */}
       <footer className="mt-8 text-center">

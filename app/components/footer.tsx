@@ -9,6 +9,18 @@ export function Footer() {
         </p>
         <nav className="flex justify-center gap-6 flex-wrap">
           <Link
+            href="/guides"
+            className="text-blue-600 hover:text-blue-800 underline text-sm"
+          >
+            Guides
+          </Link>
+          <Link
+            href="/about"
+            className="text-blue-600 hover:text-blue-800 underline text-sm"
+          >
+            About
+          </Link>
+          <Link
             href="/faq"
             className="text-blue-600 hover:text-blue-800 underline text-sm"
           >
