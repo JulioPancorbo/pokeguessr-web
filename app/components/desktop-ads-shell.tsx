@@ -16,7 +16,7 @@ const railClass = `hidden shrink-0 self-start ${DESKTOP_SIDE_AD_VIEWPORT_CLASS} 
 
 export function DesktopAdsShell({ children }: DesktopAdsShellProps) {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen primary">
       <div className={DESKTOP_SIDE_AD_LAYOUT_CLASS}>
         <aside className={railClass} aria-label="Left advertisement rail">
         <AdSlot
