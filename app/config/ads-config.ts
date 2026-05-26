@@ -15,4 +15,4 @@ export const DESKTOP_SIDE_ADS = {
 export const DESKTOP_SIDE_AD_MIN_HEIGHT = 600
 export const DESKTOP_SIDE_AD_VIEWPORT_CLASS = "min-[1400px]:block"
 export const DESKTOP_SIDE_AD_WIDTH_CLASS = "w-[160px]"
-export const DESKTOP_SIDE_AD_LAYOUT_CLASS = "min-[1400px]:mx-auto min-[1400px]:flex min-[1400px]:max-w-[1520px] min-[1400px]:items-start min-[1400px]:gap-6 min-[1400px]:px-6"
+export const DESKTOP_SIDE_AD_LAYOUT_CLASS = "min-[1400px]:mx-auto min-[1400px]:flex min-[1400px]:max-w-[1520px] min-[1400px]:items-start min-[1400px]:gap-6 min-[1400px]:px-6 primary"
