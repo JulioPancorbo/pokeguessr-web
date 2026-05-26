@@ -107,7 +107,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body className={`${chewy.className} ${pressStart2P.variable}`}>
+      <body className={`${chewy.className} ${pressStart2P.variable} primary`}>
         <DesktopAdsShell>{children}</DesktopAdsShell>
       </body>
     </html>
